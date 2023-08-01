@@ -62,7 +62,7 @@ class ImageCaptioningDataset(Dataset):
 
         return encoding
     
-#TO RUN THIS STEP ON COMPUTE CANADA YOU NEED TO MANUALLY DOWNLOAD AND ADD THE FILES (preprocessor_config.json, special_tokens_map.json, tokenizer_config.json, tokenizer.json, voacb.txt) IN A FOLDER AND GIVE IT'S PATH HERE
+#TO RUN THIS STEP ON COMPUTE CANADA YOU NEED TO MANUALLY DOWNLOAD AND ADD THE FILES (preprocessor_config.json, special_tokens_map.json, tokenizer_config.json, tokenizer.json, voacb.txt) IN A FOLDER AND GIVE IT'S PATH HERE (link to download the files: https://huggingface.co/microsoft/git-base/tree/main)
 processor = AutoProcessor.from_pretrained("/home/chawla/projects/def-rmsouza/chawla/huggingface/pretrained")
 
 train_dataset = ImageCaptioningDataset(dataset, processor)
@@ -82,7 +82,7 @@ unnormalized_image = (unnormalized_image * 255).astype(np.uint8)
 unnormalized_image = np.moveaxis(unnormalized_image, 0, -1)
 Image.fromarray(unnormalized_image)
 
-#TO RUN THIS STEP ON COMPUTE CANADA YOU NEED TO MANUALLY DOWNLOAD AND ADD THE FILES (generation_config.json, config.json, model.safetensor) IN A FOLDER AND GIVE IT'S PATH HERE
+#TO RUN THIS STEP ON COMPUTE CANADA YOU NEED TO MANUALLY DOWNLOAD AND ADD THE FILES (generation_config.json, config.json, model.safetensor) IN A FOLDER AND GIVE IT'S PATH HERE (link to download the files: https://huggingface.co/microsoft/git-base/tree/main)
 model = AutoModelForCausalLM.from_pretrained("/home/chawla/projects/def-rmsouza/chawla/huggingface/2nd_folder")
 
 outputs = model(input_ids=batch["input_ids"],
