@@ -1,1 +1,10 @@
+This code has been referenced from microsoft/GIT-base pretrained model (https://github.com/NielsRogge/Transformers-Tutorials/blob/master/GIT/Fine_tune_GIT_on_an_image_captioning_dataset.ipynb)
 
+Create a virtualenv, add all the basic python and pytorch libraries  
+Run the follwoing commands in the while the virtualenv is activated:
+pip install -q git+https://github.com/huggingface/transformers.git
+pip install -q datasets
+
+Some other modules will be loaded through the slurm file.
+
+If you runnning this code in the cluster in which internet is not present in the compute node, you need to download and add pretrained weigths & config files before running the model (the name of the files, link to download and path is given in the img_cap.py)
